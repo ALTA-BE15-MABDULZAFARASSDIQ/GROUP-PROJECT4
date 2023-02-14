@@ -1,0 +1,93 @@
+fmt.Scan(&input)
+
+    switch input {
+    case 1:
+      // Add Account (register)
+    case 2:
+      // Login
+    case 3:
+        // Read Account
+        case 4: 
+            // Update Account 
+        case 5: 
+            // Delete Account 
+        case 6: 
+            // Top-up 
+        case 7: 
+            // Transfer 
+        case 8: 
+            // History Top-up 
+        case 9: 
+            // History Transfer 
+        case 10: 
+            // View Other User Profile 
+    case 0:
+      fmt.Println("Terima kasih telah bertransaksi")
+      return
+    default:
+      fmt.Println("Input salah")
+    }
+  }
+
+  //
+  switch input {
+	case 1:
+		controllers.GetAllUsers(db)
+		controllers.GetAllTopup(db)
+		controllers.GetAllTransfer(db)
+
+	// CASE 2
+	case 2:
+		//login DATA
+		fmt.Println("update")
+		newUsers := entities.Users{}
+		fmt.Println("Masukkan ID Users:")
+		fmt.Scanln(&newUsers.ID)
+		fmt.Println("Masukkan Password Users:")
+		fmt.Scanln(&newUsers.Password)
+
+		controllers.InsertUsers(db, newUsers)
+		
+		
+		// CASE 3
+	case 3:
+		fmt.Println("update")
+		newTransfer := entities.Transfer{}
+		fmt.Println("Masukkan AccountID:")
+		fmt.Scanln(&newTransfer.AccountID)
+		fmt.Println("Masukkan Akun_ID_Penerima:")
+		fmt.Scanln(&newTransfer.Akun_ID_Penerima)
+		fmt.Println("Masukkan Nomor_Rekening:")
+		fmt.Scanln(&newTransfer.Nomor_Rekening)
+		fmt.Println("Masukkan Jumlah_Transfer:")
+		fmt.Scanln(&newTransfer.Jumlah_Transfer	)
+		fmt.Println("Masukkan Nama_Bank:")
+		fmt.Scanln(&newTransfer.Nama_Bank)
+
+		controllers.InsertTransfer(db, newTransfer)
+		
+		// CASE 4
+	case 4:
+		
+		fmt.Println("update")
+		newTopup := entities.Topup{}
+		fmt.Println("Masukkan AccountID:")
+		fmt.Scanln(&newTopup.AccountID)
+		fmt.Println("Masukkan Tanggal_Topup:")
+		fmt.Scanln(&newTopup.Tanggal_Topup)
+		fmt.Println("Masukkan Jumlah_Topup:")
+		fmt.Scanln(&newTopup.Jumlah_Topup)
+
+		controllers.InsertTopup(db, newTopup)
+		// CASE 5
+	case 5:
+		fmt.Println("get by id")
+		
+		// DEFAULT
+	default:
+		fmt.Println("Input tidak sesuai")
+		fmt.Println("delete")
+		
+	}
+	}	
+}
